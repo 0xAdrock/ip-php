@@ -1,10 +1,5 @@
 <?
 
-function redirect_to_gmail() {
-	header("Location: http://mail.google.com/a/gasts.com/");
-	exit(0);
-};
-
 function text_mode() {
 	global $ra, $ua;
 	header("Content-Type: text/plain\n");
@@ -39,15 +34,3 @@ function smart_mode() {
 
 $ua = @$_SERVER["HTTP_USER_AGENT"];
 $ra = @$_SERVER["REMOTE_ADDR"];
-
-switch(@$_SERVER['HTTP_HOST']){
-	case "mail.gasts.com":
-		redirect_to_gmail();
-	# case "localhost":
-	# case "ii.gs":
-	# case "www.ii.gs":
-	# case "gasts.com":
-	# case "www.gasts.com":
-	default:
-		smart_mode();
-};
